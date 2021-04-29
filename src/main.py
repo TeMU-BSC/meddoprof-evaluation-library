@@ -78,7 +78,7 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
     elif subtask in ['class', 'ner']:
         
         if subtask=='class':
-            labels = ['SANITARIO', 'PACIENTE', 'OTROS']
+            labels = ['SANITARIO', 'PACIENTE', 'FAMILIAR','OTROS']
         elif subtask=='ner':
             labels = ['ACTIVIDAD', 'PROFESION', 'SITUACION_LABORAL']
 
