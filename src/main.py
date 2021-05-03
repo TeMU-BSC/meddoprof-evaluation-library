@@ -75,7 +75,7 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
             raise Exception('There are not parsed Gold Standard annotations')
         if pred.shape[1] != 4:
             raise Exception('Wrong column number in predictions file')
-        elif gs.shape[0] != 4:
+        elif gs.shape[1] != 4:
             raise Exception('Wrong column number in Gold Standard file')
             
         gs.columns = ['clinical_case', 'span', 'offset', 'code']
