@@ -68,6 +68,16 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
     if subtask=='norm':
         gs = pd.read_csv(gs_path, sep='\t', header=0)
         pred = pd.read_csv(pred_path, sep='\t', header=0)
+        
+        if pred.shape[0] == 0:
+            raise Exception('There are not parsed predicted annotations')
+        elif gs.shape[0] == 0:
+            raise Exception('There are not parsed Gold Standard annotations')
+        if pred.shape[1] != 4:
+            raise Exception('Wrong column number in predictions file')
+        elif gs.shape[0] != 4:
+            raise Exception('Wrong column number in Gold Standard file')
+            
         gs.columns = ['clinical_case', 'span', 'offset', 'code']
         pred.columns = ['clinical_case', 'span', 'offset', 'code']
         
@@ -84,17 +94,16 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
 
         gs = ann_parsing.main(gs_path, labels, with_notes=False)
         pred = ann_parsing.main(pred_path, labels, with_notes=False)
+        
+        if pred.shape[0] == 0:
+            raise Exception('There are not parsed predicted annotations')
+        elif gs.shape[0] == 0:
+            raise Exception('There are not parsed Gold Standard annotations')
                    
         gs.columns = ['clinical_case', 'mark', 'label', 'offset', 'span', 
                       'start_pos_gs', 'end_pos_gs']
         pred.columns = ['clinical_case', 'mark', 'label', 'offset', 'span',
                       'start_pos_pred', 'end_pos_pred']   
-
-    if pred.shape[0] == 0:
-        raise Exception('There are not parsed predicted annotations')
-    elif gs.shape[0] == 0:
-        raise Exception('There are not parsed Gold Standard annotations')
-        
 
     # Remove predictions for files not in Gold Standard
     if subtask in ['ner', 'class']:
