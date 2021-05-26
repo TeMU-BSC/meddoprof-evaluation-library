@@ -51,7 +51,7 @@ def main(gs, pred, doc_list_gs, subtask=['ner','class', 'norm']):
     if subtask == "norm":
         relevant_columns = ["clinical_case", "offset", "code"]
     elif subtask in ["ner", "class"]:
-        relevant_columns = ["clinical_case", "offset"]
+        relevant_columns = ["clinical_case", "offset", "label"]
         
     # Predicted Positives:
     Pred_Pos_per_cc = \
