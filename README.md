@@ -102,38 +102,38 @@ $ python main.py -g ../gs-data/class/ -p ../toy-data/meddoprof-class/ -s class
 -----------------------------------------------------
 Clinical case name			Precision
 -----------------------------------------------------
-32631645_ES.ann		0.333
+32631645_ES.ann		0.75
 -----------------------------------------------------
-caso_clinico_alergologia1.ann		1.0
+caso_clinico_alergologia1.ann		0.5
 -----------------------------------------------------
 
 -----------------------------------------------------
 Clinical case name			Recall
 -----------------------------------------------------
-32631645_ES.ann		1.0
+32631645_ES.ann		0.75
 -----------------------------------------------------
-caso_clinico_alergologia1.ann		1.0
+caso_clinico_alergologia1.ann		0.5
 -----------------------------------------------------
 
 -----------------------------------------------------
 Clinical case name			F-score
 -----------------------------------------------------
-32631645_ES.ann		0.5
+32631645_ES.ann		0.75
 -----------------------------------------------------
-caso_clinico_alergologia1.ann		1.0
+caso_clinico_alergologia1.ann		0.5
 -----------------------------------------------------
 
 _____________________________________________________
 Micro-average metrics
 _____________________________________________________
 
-Micro-average precision = 0.714
+Micro-average precision = 0.625
 
 
-Micro-average recall = 1.0
+Micro-average recall = 0.625
 
 
-Micro-average F-score = 0.833
+Micro-average F-score = 0.625
 ```
 
 + MEDDOPROF-NORM
