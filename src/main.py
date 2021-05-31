@@ -103,7 +103,11 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
         gs.columns = ['clinical_case', 'mark', 'label', 'offset', 'span', 
                       'start_pos_gs', 'end_pos_gs']
         pred.columns = ['clinical_case', 'mark', 'label', 'offset', 'span',
-                      'start_pos_pred', 'end_pos_pred']   
+                      'start_pos_pred', 'end_pos_pred']  
+
+    # Drop duplicates
+    pred = pred.drop_duplicates().copy()
+    gs = gs.drop_duplicates().copy()
 
     # Remove predictions for files not in Gold Standard
     if subtask in ['ner', 'class']:
