@@ -106,8 +106,8 @@ def main(gs_path, pred_path, subtask=['class', 'ner', 'norm'], codes_path=''):
                       'start_pos_pred', 'end_pos_pred']  
 
     # Drop duplicates
-    pred = pred.drop_duplicates().copy()
-    gs = gs.drop_duplicates().copy()
+    pred = pred.drop_duplicates(['clinical_case', 'label', 'offset']).copy()
+    gs = gs.drop_duplicates(['clinical_case', 'label', 'offset']).copy()
 
     # Remove predictions for files not in Gold Standard
     if subtask in ['ner', 'class']:
